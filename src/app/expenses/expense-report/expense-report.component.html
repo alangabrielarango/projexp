@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-actions class="new-button">
+    <button mat-raised-button color="primary" (click)="downloadPDF()"><mat-icon>save</mat-icon> SAVE TO PDF</button>
+  </mat-card-actions>
+  <div id="content">
+  <!-- if the flag of loading is active shows the spinner -->
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <mat-card-title>PROJECT EXPENSES REPORT</mat-card-title>
+    <table *ngFor="let pro of expenses">
+        <tr class="project">
+          <th>Project</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Budget %</th>
+          <th>Budget</th>
+          <th>Total Spent</th>
+          <th>Spent %</th>
+        </tr>
+        <tr>
+          <td>{{pro["project"]}}</td>
+          <td>{{pro["description"]}}</td>
+          <td>{{pro["status"]}}</td>
+          <td>100%</td>
+          <td>{{pro["budget"]}}</td>
+          <td>{{pro["total"]}}</td>
+          <td>{{pro["spent"]}}</td>
+        </tr>
+        <tbody *ngFor="let pha of pro['phases']">
+          <tr class="phase">
+            <th>Order</th>
+            <th>Phase</th>
+            <th>Status</th>
+            <th>Budget %</th>
+            <th>Budget</th>
+            <th>Total Spent</th>
+            <th>Spent %</th>
+          </tr>
+          <tr>
+            <td>{{pha["order"]}}</td>
+            <td>{{pha["phase"]}}</td>
+            <td>{{pha["status"]}}</td>
+            <td>{{pha["percentage"]}}</td>
+            <td>{{pha["budget"]}}</td>
+            <td>{{pha["total"]}}</td>
+            <td>{{pha["spent"]}}</td>
+          </tr>
+          <tr class="expense">
+            <th></th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>User</th>
+            <th>Total Spent</th>
+            <th>Spent %</th>
+          </tr>
+          <tr *ngFor="let exp of pha['expenses']">
+            <td></td>
+            <td>{{exp["date"]}}</td>
+            <td>{{exp["category"]}}</td>
+            <td>{{exp["subcategory"]}}</td>
+            <td>{{exp["user"]}}</td>
+            <td>{{exp["total"]}}</td>
+            <td>{{exp["spent"]}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</mat-card>
+
+
