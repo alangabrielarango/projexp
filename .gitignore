@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -48,3 +48,5 @@ Thumbs.db
 #environment variables
 env.list
 nodemon.json
+backend.zip
+
