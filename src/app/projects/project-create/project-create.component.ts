@@ -49,12 +49,14 @@ export class ProjectCreateComponent implements OnInit{
       return;
     }
     this.isLoading = true;
+    //removes commas
+    var budget = parseFloat(new String(form.value.budget).replace(/,/g, ''));
     if(this.mode === 'add'){
       //if the add mode is active calls the add service
-      this.projectServices.add(form.value.name, form.value.budget, form.value.description, form.value.status);
+      this.projectServices.add(form.value.name, budget, form.value.description, form.value.status);
     } else {
       //if the edit mode is active calls the edit service
-      this.projectServices.update(this.id, form.value.name, form.value.budget, form.value.description, form.value.status);
+      this.projectServices.update(this.id, form.value.name, budget, form.value.description, form.value.status);
     }
     //resets form
     form.resetForm();

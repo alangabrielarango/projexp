@@ -24,7 +24,7 @@
       name="budget"
       required
       placeholder="Budget"
-      [ngModel]="project?.budget"
+      [ngModel]="project?.budget | number:'1.2'"
       #name="ngModel">
       <mat-error >Please enter a budget</mat-error>
     </mat-form-field>

@@ -15,13 +15,13 @@
     </mat-form-field>
     <mat-form-field>
       <input
-      type="number"
+      type="text"
       matInput
       name="total"
       required
       min="0"
       placeholder="Total"
-      [ngModel]="expense?.total"
+      [ngModel]="expense?.total | number:'1.2'"
       #name="ngModel">
       <mat-error >Please enter the Total</mat-error>
     </mat-form-field>

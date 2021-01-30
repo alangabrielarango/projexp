@@ -122,11 +122,13 @@ export class ExpenseCreateComponent implements OnInit{
       return;
     }
     this.isLoading = true;
+    //removes commas
+    var total = parseFloat(new String(form.value.total).replace(/,/g, ''));
     if(this.mode === 'add'){
       //if the add mode is active calls the add service
       this.expenseServices.add(
         form.value.date,
-        form.value.total,
+        total,
         form.value.category,
         form.value.subcategory,
         form.value.project,
@@ -139,7 +141,7 @@ export class ExpenseCreateComponent implements OnInit{
       this.expenseServices.update(
         this.id,
         form.value.date,
-        form.value.total,
+        total,
         form.value.category,
         form.value.subcategory,
         form.value.project,
